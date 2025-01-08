@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda & Donasi - DoNation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 25px; 
+            background-color: #eaeaea;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+        header .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+           header .nav {
+            display: flex;
+            gap: px;
+            margin-right: 20px;
+        }
+        header .nav a {
+            text-decoration: none;
+            color: #333; 
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 5px 12px; 
+            margin-right: 10px; 
+            white-space: nowrap; 
+        }
+        header .nav a:hover {
+            color: #007bff; 
+        }
+        header .nav a:last-child {
+            margin-right: 0;
+        }
+        .hero {
+            position: relative;
+            margin-top: 60px;
+            text-align: center;
+        }
+        .hero .slider {
+            display: inline-block;
+            width: 70%;
+            max-width: 600px;
+            position: relative;
+            margin: 0 auto;
+        }
+        .slider img {
+            display: none;
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            filter: brightness(0.7);
+        }
+        .slider img.active {
+            display: block;
+        }
+        .slider .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .slider-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .slider-buttons button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .donasi-container {
+            margin: 40px auto;
+            width: 90%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .donasi-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .donasi-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .donasi-item h3 {
+            font-size: 20px;
+            margin: 15px 0;
+        }
+        .donasi-item p {
+            font-size: 14px;
+            color: #666;
+            margin: 0 15px;
+        }
+        .donasi-item .progress-container {
+            width: 80%;
+            margin: 10px auto;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .donasi-item .progress-bar {
+            height: 10px;
+            background-color: #4caf50;
+            width: 50%;
+        }
+        .donasi-item .progress-text {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #333;
+        }
+        .donasi-item button {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 15px;
+        }
+        footer {
+            text-align: center; /* Pusatkan teks secara horizontal */
+            padding: 20px;
+            background-color: #f1f1f1;
+            color: #333; /* Warna teks kontras */
+            font-size: 18px; /* Ukuran font yang lebih besar */
+            font-weight: bold;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Tambahkan shadow agar footer lebih menonjol */
+            overflow: hidden; /* Hindari konten keluar dari batas */
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="asset/logo.png" alt="DoNation Logo">
+        <span>DoNation</span>
+    </div>
+    <nav class="nav">
+        <a href="#beranda">Beranda</a>
+        <a href="login.html">Login</a>
+        <a href="tentangkami.html">Tentang Kami</a>
+    </nav>
+</header>
+
+<section id="beranda" class="hero">
+    <div class="slider">
+        <img src="asset/banjir.png" alt="Flood background" class="active">
+        <img src="asset/Insfratruktur.png" alt="Insfratruktur">
+        <img src="asset/perlindunganHewan.png" alt="perlindunganHewan">
+        <div class="overlay-text">Mari berbuat kebaikan sebagai manusia yang saling membutuhkan</div>
+        <div class="slider-buttons">
+        </div>
+    </div>
+</section>
+
+<section id="donasi" class="donasi-container">
+    <div class="donasi-item">
+        <img src="asset/donasi/bencana.png" alt="Bantuan Bencana">
+        <h3>Bantuan Bencana</h3>
+        <p>Bantu korban bencana alam mendapatkan kebutuhan darurat seperti makanan dan pakaian.</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 70%;"></div>
+            <div class="progress-text">Rp 70,000,000 terkumpul dari Rp 100,000,000</div>
+        </div>
+        <button onclick="location.href='donasi1.html'">Donasi Sekarang</button>
+    </div>
+
+    <div class="donasi-item">
+        <img src="asset/donasi/pendidikan.png" alt="Pendidikan Anak">
+        <h3>Pendidikan Anak</h3>
+        <p>Dukung pendidikan anak-anak kurang mampu untuk masa depan yang lebih baik.</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 50%;"></div>
+            <div class="progress-text">Rp 50,000,000 terkumpul dari Rp 100,000,000</div>
+        </div>
+        <button onclick="location.href='donasi2.html'">Donasi Sekarang</button>
+    </div>
+
+    <div class="donasi-item">
+        <img src="asset/donasi/kesehatan.png" alt="Kesehatan">
+        <h3>Kesehatan</h3>
+        <p>Bantu biaya pengobatan bagi mereka yang membutuhkan.</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 80%;"></div>
+            <div class="progress-text">Rp 75,000,000 terkumpul dari Rp 120,000,000</div>
+        </div>
+        <button onclick="location.href='donasi3.html'">Donasi Sekarang</button>
+    </div>
+
+    <div class="donasi-item">
+        <img src="asset/donasi/pangan.png" alt="Pangan">
+        <h3>Bantuan Pangan</h3>
+        <p>Sumbangkan makanan untuk keluarga yang membutuhkan.</p>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 60%;"></div>
+            <div class="progress-text">Rp 100,000,000 terkumpul dari Rp 150,000,000</div>
+        </div>
+        <button onclick="location.href='donasi4.html'">Donasi Sekarang</button>
+    </div>
+</section>
+
+<footer>
+    Foundation support by <b>DoNation</b>
+</footer>
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slider img');
+
+    function changeSlide(direction) {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + direction + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    // Auto-slide functionality
+    setInterval(() => {
+        changeSlide(1);
+    }, 5000); // Change slide every 5 seconds
+</script>
+
+</body>
+</html>
