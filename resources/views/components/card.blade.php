@@ -21,7 +21,7 @@
                           Rp {{ number_format($post->goal_amount, 0, ',', '.') }}
                       </p>
                   </div>
-                  <button class="mt-4 w-full bg-black text-white py-2 rounded-lg">
+                  <button class="mt-4 w-full bg-black text-white py-2 rounded-lg absolute">
                       Donasi Sekarang
                   </button>
               </div>

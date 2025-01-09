@@ -13,8 +13,8 @@
                         <img src="images/donasi/{{ $post->image_url }}.png" alt="Image" class="w-full h-40 object-cover">
                         <div class="p-4">
                             <h2 class="text-lg font-bold">{{ $post->title }}</h2>
-                            <p class="text-sm text-gray-600 mt-2">
-                                {{ $post->description }}
+                            <p class="text-sm text-gray-600">
+                                {{ Str::limit($post->description, 50) }}
                             </p>
                             <div class="mt-4">
                                 <div class="bg-gray-300 rounded-full h-2">
