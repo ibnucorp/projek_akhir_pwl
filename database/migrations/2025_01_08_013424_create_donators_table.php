@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('donators', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Link to users table
+            $table->foreignId('post_id')->constrained()->onDelete('cascade'); // Link to posts table
             $table->text('pesan');
             $table->text('total_donasi');
             $table->timestamps();

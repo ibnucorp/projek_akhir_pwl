@@ -7,14 +7,11 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public function create()
     {
-        // Fetch all posts
-        $posts = Post::all();
-
-        // Pass the posts data to the view
-        return view('pages.home', compact('posts'));
+        return view('posts.create');
     }
+
     /**
      * Store a new post in the database.
      */
@@ -31,10 +28,5 @@ class PostController extends Controller
         ]);
 
         return redirect()->route('home')->with('success', 'Post created successfully!');
-    }
-
-    public function create()
-    {
-        return view('posts.create');
     }
 }
