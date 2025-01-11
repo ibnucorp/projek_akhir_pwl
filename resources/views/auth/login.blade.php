@@ -46,5 +46,11 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <div class="container text-center">
+            <p>Belum Punya akun? 
+                <a href="register" class="text-blue-600">Daftar</a>
+            </p>
+        </div>
     </form>
+
 </x-guest-layout>

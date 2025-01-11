@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="relative h-screen bg-cover bg-center" style="background-image: url('images/donasi/1.png');">
+    <div class="relative h-screen bg-cover bg-center rounded-3xl overflow-hidden" style="background-image: url('images/donasi/banjir.png');">
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     <div class="relative z-10 max-w-4xl mx-auto px-6 h-full flex flex-col justify-center">
         <h1 class="text-5xl font-bold text-white mb-4">Mereka butuh Kita</h1>

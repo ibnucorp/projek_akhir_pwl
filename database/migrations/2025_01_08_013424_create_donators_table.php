@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Link to users table
             $table->foreignId('post_id')->constrained()->onDelete('cascade'); // Link to posts table
             $table->text('pesan');
-            $table->text('total_donasi');
+            $table->bigInteger('total_donasi');
+            $table->string('tipe_bayar');
             $table->timestamps();
         });
     }

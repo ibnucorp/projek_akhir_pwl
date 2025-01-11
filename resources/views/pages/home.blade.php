@@ -4,6 +4,8 @@
 <x-banner/>
 <x-navbar/>
 
+<div id="kebutuhan" class="my-5">
+    <h1 class="font-semibold text-2xl">Kebutuhan Mendesak</h1>
     <div class="cards">
         <div class="flex flex-wrap justify-center gap-6 p-6">
         <!-- Card -->
@@ -28,18 +30,21 @@
                                     Rp {{ number_format($post->goal_amount, 0, ',', '.') }}
                                 </p>
                             </div>
-                            <button class="mt-4 w-full bg-black text-white py-2 rounded-lg">
+                            <a href="{{ route('pembayaran.index', $post->id) }}" class="mt-4 w-full bg-black text-white py-2 rounded-lg text-center block">
                                 Donasi Sekarang
-                            </button>
+                            </a>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
     </div>
-
-
-<x-modal/>
+</div>
+@if (session('success'))
+    <div class="bg-green-100 text-green-700 p-3 rounded">
+        {{ session('success') }}
+    </div>
+@endif
 @endsection
 
 
