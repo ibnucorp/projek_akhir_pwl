@@ -6,7 +6,7 @@
         <p class="text-lg text-gray-300 mb-8">
         Ayo ikut serta memberi bantuan bagi mereka yang membutuhkan
         </p>
-        <a href="#"
+        <a href="register"
         class="w-fit px-6 py-3 bg-blue-600 text-white font-medium rounded-md shadow-md hover:bg-blue-700 transition">
         Mulai Donasi
         </a>

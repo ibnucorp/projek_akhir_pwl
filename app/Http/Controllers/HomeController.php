@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donator;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,8 @@ class HomeController extends Controller
         // Mengambil data Post
         $posts = Post::all();
 
-        return view('pages.home', ['posts' => $posts]);
+
+        $donators = Donator::latest()->take(5)->get();
+        return view('pages.home', compact('posts', 'donators'));
     }
 }

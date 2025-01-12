@@ -1,2 +1,5 @@
-buat dropdown menu
-tampilan progress bar dan recent donator
+buat dropdown menu X
+tampilan progress bar dan recent donator V
+buat menu create post admin V
+buat menu show all post admin V
+Create post bermasalah lewat thunderclient

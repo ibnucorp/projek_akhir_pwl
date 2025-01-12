@@ -38,4 +38,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('bayar/{id}', [PembayaranController::class, 'index'])->name('pembayaran.index');
 });
 
+Route::get('token', function () {
+    return @csrf_token();
+});
+
 require __DIR__ . '/auth.php';

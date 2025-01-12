@@ -40,6 +40,32 @@
         </div>
     </div>
 </div>
+
+                    <div id="riwayatDonasi" class="space-y-4 w-12/12 mx-auto my-5">
+                        <h1 class="text-3xl font-semibold">Riwayat Donatur</h1>
+                        @if ($donators->isEmpty())
+                            <p class="text-center text-gray-500">Belum ada donatur.</p>
+                        @else
+                            @foreach ($donators as $donator)
+                                <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 border-gray-500 border">
+                                    <!-- Icon -->
+                                    <img src="{{ asset('images/icons/ikonrupiah.png') }}" 
+                                        alt="Ikon Rupiah" 
+                                        class="w-16 h-16 object-contain">
+                                    
+                                    <!-- Details -->
+                                    <div class="">
+                                        <p class="font-semibold text-gray-800">{{ ucwords($donator->user->username ?? 'Anonim') }}</p>
+                                        <p class="text-green-600 font-bold">
+                                            Rp {{ number_format($donator->total_donasi, 0, ',', '.') }}
+                                            <span class="text-gray-500 font-normal"> • Via {{ $donator->tipe_bayar }}</span>
+                                        </p>
+                                        <p class="text-gray-600 text-sm mt-1">{{ $donator->pesan ?? '' }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @endif
+                    </div>
 @if (session('success'))
     <div class="bg-green-100 text-green-700 p-3 rounded">
         {{ session('success') }}
