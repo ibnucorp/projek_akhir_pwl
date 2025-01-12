@@ -18,4 +18,10 @@ class Post extends Model
         'current_amount',
         'status',
     ];
+
+    // Model Post
+    public function donators()
+    {
+        return $this->hasMany(Donator::class);
+    }
 }

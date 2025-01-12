@@ -57,4 +57,10 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect('/'); // Redirect ke halaman utama atau halaman login
+    }
 }

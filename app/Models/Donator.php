@@ -16,4 +16,10 @@ class Donator extends Model
         'total_donasi',
         'tipe_bayar'
     ];
+
+    // Model Donator
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donator;
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -28,5 +30,18 @@ class PostController extends Controller
         ]);
 
         return redirect()->route('home')->with('success', 'Post created successfully!');
+    }
+
+    public function index($id)
+    {
+        $post = Post::findOrFail($id);
+
+        // Ambil data donator terkait post
+        $donators = Donator::where('post_id', $id)
+            ->with('user')
+            ->latest()
+            ->paginate(5); // Mengambil 5 data per halaman
+
+        return view('pages.post', compact('post', 'donators'));
     }
 }

@@ -1,10 +1,9 @@
+<x-navbar/>
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
-      <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900">
-          <img class="w-8 h-8 mr-2" src="{{ asset("images/icons/icon-logo.svg") }}" alt="logo">
-          DoNation
-      </a>
+
+    <h1 class="text-center font-semibold text-2xl mb-6">Login</h1>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 

@@ -30,7 +30,7 @@
                                     Rp {{ number_format($post->goal_amount, 0, ',', '.') }}
                                 </p>
                             </div>
-                            <a href="{{ route('pembayaran.index', $post->id) }}" class="mt-4 w-full bg-black text-white py-2 rounded-lg text-center block">
+                            <a href="{{ route('post.index', $post->id) }}" class="mt-4 w-full bg-black text-white py-2 rounded-lg text-center block">
                                 Donasi Sekarang
                             </a>
                         </div>
@@ -50,7 +50,7 @@
 
 
 @section('script')
-<script>
+{{-- <script>
     // Function to show the modal with a dynamic message
     function showNotificationModal(title, message) {
         const modal = document.getElementById('notificationModal');
@@ -66,5 +66,5 @@
     document.getElementById('closeModalButton').addEventListener('click', function () {
         document.getElementById('notificationModal').classList.add('hidden');
     });
-</script>
+</script> --}}
 @endsection
