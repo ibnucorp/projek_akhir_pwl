@@ -30,8 +30,12 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::post('posts', [PostController::class, 'store'])->name('posts.store');
-Route::get('posts/{id}', [PostController::class, 'index'])->name('post.index');
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('posts/show/{id}', [PostController::class, 'index'])->name('posts.index');
+Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('posts/edit/{id}', [PostController::class, 'editPost'])->name('posts.edit');
+Route::put('posts/{id}', [PostController::class, 'update'])->name('posts.update');
+
 
 Route::middleware(['auth'])->group(function () {
     Route::post('donators', [DonatorController::class, 'store'])->name('donators.store');

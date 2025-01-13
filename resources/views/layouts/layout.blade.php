@@ -16,7 +16,7 @@
     -->
 </head>
 <body>
-    <div class="container p-20">
+    <div class="container p-20 mx-auto">
         @yield('content')
     </div>
     <script src="{{ asset('build/assets/app-Cy98PJ2n.js') }}"></script>

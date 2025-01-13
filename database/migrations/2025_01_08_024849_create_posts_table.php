@@ -21,6 +21,10 @@ return new class extends Migration
             $table->enum('status', ['active', 'completed', 'inactive'])->default('active');
             $table->timestamps();
         });
+
+        Schema::table('posts', function (Blueprint $table) {
+            $table->softDeletes(); // Adds 'deleted_at' column
+        });
     }
 
     /**

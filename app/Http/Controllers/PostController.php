@@ -44,4 +44,24 @@ class PostController extends Controller
 
         return view('pages.post', compact('post', 'donators'));
     }
+
+    public function editPost($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.edit');
+    }
+
+    public function show($id)
+    {
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
+    }
+
+    public function delete($id) {}
 }

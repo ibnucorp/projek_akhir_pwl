@@ -9,15 +9,20 @@
     <div class="cards">
         <div class="flex flex-wrap justify-center gap-6 p-6">
         <!-- Card -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ($posts as $post)
-                    <div class="w-64 bg-white shadow-md rounded-lg overflow-hidden">
-                        <img src="images/donasi/{{ $post->image_url }}.png" alt="Image" class="w-full h-40 object-cover">
-                        <div class="p-4">
-                            <h2 class="text-lg font-bold">{{ $post->title }}</h2>
-                            <p class="text-sm text-gray-600">
-                                {{ Str::limit($post->description, 50) }}
-                            </p>
+                    <div class="bg-white shadow-md rounded-lg flex flex-col">
+                        <!-- Image Section -->
+                        <img src="{{ asset('images/donasi/' . $post->image_url.'.png') }}" 
+                            alt="{{ $post->title }}" 
+                            class="w-full h-40 object-cover rounded-t-lg">
+
+                        <!-- Content Section -->
+                        <div class="p-4 flex-grow">
+                            <h2 class="text-lg font-bold text-gray-800">{{ $post->title }}</h2>
+                            <p class="text-sm text-gray-600 mt-2">{{ $post->description }}</p>
+                            
+                            <!-- Progress Bar -->
                             <div class="mt-4">
                                 <div class="bg-gray-300 rounded-full h-2">
                                     @php
@@ -30,7 +35,12 @@
                                     Rp {{ number_format($post->goal_amount, 0, ',', '.') }}
                                 </p>
                             </div>
-                            <a href="{{ route('post.index', $post->id) }}" class="mt-4 w-full bg-black text-white py-2 rounded-lg text-center block">
+                        </div>
+
+                        <!-- Button Section -->
+                        <div class="p-4">
+                            <a href="{{ route('posts.index', $post->id) }}" 
+                            class="w-full bg-black text-white text-center py-2 rounded-lg block">
                                 Donasi Sekarang
                             </a>
                         </div>

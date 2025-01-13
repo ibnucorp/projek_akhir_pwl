@@ -24,8 +24,10 @@
                                     <td class="border border-gray-300 p-2">{{ $post->id }}</td>
                                     <td class="border border-gray-300 p-2">{{ $post->title }}</td>
                                     <td class="border border-gray-300 p-2">{{ $post->status }}</td>
-                                    <td class="border border-gray-300 p-2">
-                                        <a href="{{ route('post.index', $post->id) }}" class="text-blue-600">View</a>
+                                    <td class="border border-gray-300 p-2 text-white">
+                                        <a href="{{ route('posts.show', $post->id) }}" class="py-2 px-4 bg-blue-600 rounded-md">View</a>
+                                        <a href="{{ route('posts.edit', $post->id) }}" class="py-2 px-4 bg-yellow-600 rounded-md">Edit</a>
+                                        {{-- <a href="{{ route('posts.delete', $post->id) }}" class="py-2 px-4 bg-yellow-600 rounded-md">Edit</a> --}}
                                     </td>
                                 </tr>
                             @endforeach
