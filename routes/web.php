@@ -31,10 +31,11 @@ Route::middleware('auth')->group(function () {
 
 Route::post('posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('posts/create', [PostController::class, 'create'])->name('posts.create');
-Route::get('posts/show/{id}', [PostController::class, 'index'])->name('posts.index');
-Route::get('posts/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::get('posts/{id}', [PostController::class, 'index'])->name('posts.show');
 Route::get('posts/edit/{id}', [PostController::class, 'editPost'])->name('posts.edit');
-Route::put('posts/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::put('posts/update/{id}', [PostController::class, 'update'])->name('posts.update');
+Route::delete('posts/delete/{id}', [PostController::class, 'delete'])->name('posts.delete');
+Route::post('posts/toggle-status/{id}', [PostController::class, 'toggleStatus'])->name('posts.toggleStatus');
 
 
 Route::middleware(['auth'])->group(function () {

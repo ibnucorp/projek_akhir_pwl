@@ -51,10 +51,22 @@ class PostController extends Controller
         return view('posts.edit', compact('post'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        return view('posts.edit');
+
+        // Update the post
+        $post->update($request->only([
+            'title',
+            'description',
+            'image_url',
+            'goal_amount',
+            'current_amount',
+            'status'
+        ]));
+
+        // Redirect with a success message
+        return redirect()->route('dashboard.showall')->with('success', 'Post updated successfully.');
     }
 
     public function show($id)
@@ -63,5 +75,28 @@ class PostController extends Controller
         return view('posts.show', compact('post'));
     }
 
-    public function delete($id) {}
+    public function delete($id)
+    {
+
+        $post = Post::findOrFail($id);
+
+        // Soft delete the post
+        $post->delete();
+
+        // Delete associated donators
+        Donator::where('post_id', $id)->delete();
+
+        return redirect()->back()->with('success', 'Post and associated donators deleted successfully.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $post = Post::findOrFail($id);
+
+        // Toggle the status between active and inactive
+        $post->status = $post->status === 'active' ? 'inactive' : 'active';
+        $post->save();
+
+        return redirect()->back()->with('success', 'Post status has been updated.');
+    }
 }

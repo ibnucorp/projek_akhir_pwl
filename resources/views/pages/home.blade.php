@@ -19,15 +19,20 @@
 
                         <!-- Content Section -->
                         <div class="p-4 flex-grow">
-                            <h2 class="text-lg font-bold text-gray-800">{{ $post->title }}</h2>
-                            <p class="text-sm text-gray-600 mt-2">{{ $post->description }}</p>
-                            
+                            <div class="h-16 flex flex-col justify-end">
+                                <h2 class="text-lg font-bold text-gray-800">{{ Str::limit($post->title, 40) }}</h2>
+                                <hr class="mt-2">
+                            </div>
+                            <p class="text-sm text-justify text-gray-600 mt-4">{{ Str::limit($post->description, 150) }}</p>
+                        </div>
+
+                        <div class="p-4">
                             <!-- Progress Bar -->
                             <div class="mt-4">
                                 <div class="bg-gray-300 rounded-full h-2">
                                     @php
                                         $progress = ($post->current_amount / $post->goal_amount) * 100;
-                                    @endphp
+                                        @endphp
                                     <div class="bg-green-500 h-2 rounded-full" style="width: {{ $progress }}%;"></div>
                                 </div>
                                 <p class="text-sm text-gray-500 mt-1">
@@ -37,9 +42,10 @@
                             </div>
                         </div>
 
+
                         <!-- Button Section -->
                         <div class="p-4">
-                            <a href="{{ route('posts.index', $post->id) }}" 
+                            <a href="{{ route('posts.show', $post->id) }}" 
                             class="w-full bg-black text-white text-center py-2 rounded-lg block">
                                 Donasi Sekarang
                             </a>
@@ -50,32 +56,34 @@
         </div>
     </div>
 </div>
+{{-- Riwayat Donasi --}}
+<div id="riwayatDonasi" class="space-y-4 w-12/12 mx-auto my-5">
+    <h1 class="text-3xl font-semibold">Riwayat Donatur</h1>
+    @if ($donators->isEmpty())
+        <p class="text-center text-gray-500">Belum ada donatur.</p>
+    @else
+        @foreach ($donators as $donator)
+            <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 border-gray-500 border">
+                <!-- Icon -->
+                <img src="{{ asset('images/icons/ikonrupiah.png') }}" 
+                    alt="Ikon Rupiah" 
+                    class="w-16 h-16 object-contain">
+                
+                <!-- Details -->
+                <div class="">
+                    <p class="font-semibold text-gray-800">{{ ucwords($donator->user->username ?? 'Anonim') }} <span class="font-normal text-gray-400">| {{ $donator->created_at->diffForHumans() }}</span></p>
+                    <p class="text-green-600 font-bold">
+                        Rp {{ number_format($donator->total_donasi, 0, ',', '.') }}
+                        <span class="text-gray-500 font-normal"> • Via {{ $donator->tipe_bayar }}</span>
+                    </p>
+                    <p class="text-gray-600 text-sm mt-1">{{ $donator->pesan ?? '' }}</p>
+                </div>
+            </div>
+        @endforeach
+    @endif
+</div>
+{{-- /Riwayat Donasi --}}
 
-                    <div id="riwayatDonasi" class="space-y-4 w-12/12 mx-auto my-5">
-                        <h1 class="text-3xl font-semibold">Riwayat Donatur</h1>
-                        @if ($donators->isEmpty())
-                            <p class="text-center text-gray-500">Belum ada donatur.</p>
-                        @else
-                            @foreach ($donators as $donator)
-                                <div class="bg-white shadow-md rounded-lg p-4 flex items-center space-x-4 border-gray-500 border">
-                                    <!-- Icon -->
-                                    <img src="{{ asset('images/icons/ikonrupiah.png') }}" 
-                                        alt="Ikon Rupiah" 
-                                        class="w-16 h-16 object-contain">
-                                    
-                                    <!-- Details -->
-                                    <div class="">
-                                        <p class="font-semibold text-gray-800">{{ ucwords($donator->user->username ?? 'Anonim') }}</p>
-                                        <p class="text-green-600 font-bold">
-                                            Rp {{ number_format($donator->total_donasi, 0, ',', '.') }}
-                                            <span class="text-gray-500 font-normal"> • Via {{ $donator->tipe_bayar }}</span>
-                                        </p>
-                                        <p class="text-gray-600 text-sm mt-1">{{ $donator->pesan ?? '' }}</p>
-                                    </div>
-                                </div>
-                            @endforeach
-                        @endif
-                    </div>
 @if (session('success'))
     <div class="bg-green-100 text-green-700 p-3 rounded">
         {{ session('success') }}

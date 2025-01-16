@@ -12,6 +12,7 @@
                     <h2 class="text-2xl font-bold mb-6">Create a New Donation Post</h2>
                     <form method="POST" action="{{ route('posts.update', $post->id) }}">
                         @csrf
+                         @method('PUT')
                         <div class="mb-4">
                             <img src="{{ asset('images/donasi/'.$post->image_url.'.png') }}" alt="Image" class="w-64 object-cover h-full">
                         </div>
@@ -49,9 +50,9 @@
                         <div class="mb-4">
                             <label for="status" class="block text-lg font-medium mb-1">Status</label>
                             <select id="status" name="status" class="w-full border rounded-lg p-2" required>
-                                <option value="active">Active</option>
-                                <option value="completed">Completed</option>
-                                <option value="inactive">Inactive</option>
+                                <option value="active" {{ old('status', $post->status) == 'active' ? 'selected' : '' }}>Active</option>
+                                <option value="completed" {{ old('status', $post->status) == 'completed' ? 'selected' : '' }}>Completed</option>
+                                <option value="inactive" {{ old('status', $post->status) == 'inactive' ? 'selected' : '' }}>Inactive</option>
                             </select>
                         </div>
 
