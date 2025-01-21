@@ -19,17 +19,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $imagePath = $request->file('image_file')->store('images/donasi', 'public');
         // Create a new post
         Post::create([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'image_url' => $request->input('image_url'),
+            'image_url' => $imagePath, // Save the image filename
             'goal_amount' => $request->input('goal_amount'),
             'current_amount' => $request->input('current_amount', 0), // Default to 0 if not provided
             'status' => $request->input('status'),
         ]);
 
-        return redirect()->route('home')->with('success', 'Post created successfully!');
+        return redirect()->route('dashboard.showall')->with('success', 'Post created successfully!');
     }
 
     public function index($id)

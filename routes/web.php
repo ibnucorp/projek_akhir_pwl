@@ -17,7 +17,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/dashboard/showall', [DashboardController::class, 'showall'])->middleware(['auth', 'verified'])->name('dashboard.showall');
 
 Route::get('/dashboard/show/{id}', [DashboardController::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard.show');
-Route::get('/dashboard/create', [DashboardController::class, 'create'])->middleware(['auth', 'verified'])->name('dashboard.create');
 // Login Admin
 // username: admin
 // password: admin

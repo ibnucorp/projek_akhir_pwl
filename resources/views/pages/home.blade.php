@@ -13,16 +13,17 @@
                 @foreach ($posts as $post)
                     <div class="bg-white shadow-md rounded-lg flex flex-col">
                         <!-- Image Section -->
-                        <img src="{{ asset('images/donasi/' . $post->image_url.'.png') }}" 
+                        <img src="{{ asset('storage/' . $post->image_url) }}" 
                             alt="{{ $post->title }}" 
                             class="w-full h-40 object-cover rounded-t-lg">
-
+                        
                         <!-- Content Section -->
                         <div class="p-4 flex-grow">
-                            <div class="h-16 flex flex-col justify-end">
-                                <h2 class="text-lg font-bold text-gray-800">{{ Str::limit($post->title, 40) }}</h2>
+                            <div class="h-20 flex flex-col justify-end">
+                                <h2 class="text-lg font-bold text-gray-800">{{ Str::limit($post->title, 50) }}</h2>
                                 <hr class="mt-2">
                             </div>
+
                             <p class="text-sm text-justify text-gray-600 mt-4">{{ Str::limit($post->description, 150) }}</p>
                         </div>
 

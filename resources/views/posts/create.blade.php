@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
     <h2 class="text-2xl font-bold mb-6">Create a New Donation Post</h2>
-    <form method="POST" action="{{ route('posts.store') }}">
+    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Title -->
@@ -25,10 +25,10 @@
             <textarea id="description" name="description" class="w-full border rounded-lg p-2" rows="4" placeholder="Enter the description" required></textarea>
         </div>
 
-        <!-- Image URL -->
+        <!-- Image File -->
         <div class="mb-4">
-            <label for="image_url" class="block text-lg font-medium mb-1">Image URL</label>
-            <input type="text" id="image_url" name="image_url" class="w-full border rounded-lg p-2" placeholder="Enter the image URL" required>
+            <label for="image_file" class="block text-lg font-medium mb-1">Image File</label>
+            <input type="file" id="image_file" name="image_file" class="w-full border rounded-lg p-2" required>
         </div>
 
         <!-- Goal Amount -->

@@ -11,7 +11,7 @@
                     </div>
                     <div class="bg-white shadow-md rounded-lg mx-auto border-gray-500">
                         
-                        <img src="{{ asset('images/donasi/' . $post->image_url . '.png') }}" alt="Image" class="w-full h-full rounded-t-2xl">
+                        <img src="{{ asset('storage/' . $post->image_url) }}" alt="Image" class="w-full h-full rounded-t-2xl">
                         <div class="p-4">
                             <h2 class="text-3xl font-bold my-3">{{ $post->title }}</h2>
                             <hr>
